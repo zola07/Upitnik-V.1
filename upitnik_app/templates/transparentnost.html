@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Транспарентност</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+</head>
+<body>
+    <div class="side-menu">
+        <ul>
+            <img id="logo-menu" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+            <li><a href="/upitnik">Почетна страна</a></li>
+            <li><a href="/delovanje_i_kontrola">Деловање и контрола</a></li>
+            <li><a href="/tehnicka_pouzdanost_i_bezbednost">Техничка поузданост и безбедност</a></li>
+            <li><a href="/privatnost_zastita_podataka_i_upravljanje_podacima">Приватност, заштита података о личности и управљање подацима</a></li>
+            <li><a href="/transparentnost">Транспарентност</a></li>
+            <li><a href="/razlicitost_nediskriminacija_i_ravnopravnost">Различитост, недискриминација и равноправност</a></li>
+            <li><a href="/drustveno_i_ekonomsko_blagostanje">Друштвено и еколошко благостање</a></li>
+            <li><a href="/odgovornost">Одговорност</a></li>
+            <!-- Dodajte linkove za ostale stranice -->
+        </ul>
+    </div>
+    <form method="POST" action="/transparentnost">
+        <input type="hidden" name="jedinstveni_id" value="{{ jedinstveni_id }}">
+        <h1>Транспарентност</h1>
+        
+        <h2>Могућност праћења – следљивост</h2>
+        
+        <p>Праћење организацијама омогућава да процене да ли су процеси развоја система вештачке интелигенције, односно подаци, процедуре и процеси који утичу на одлуке засноване на вештачкој интелигенцији документовани тако да дозвољавају праћење, повећавају транспарентност и граде поверење друштва у вештачку интелигенцију.</p>
+        <!-- Sedmo pitanje sa radio button-om i text poljem -->
+        <h4>Да ли су успостављене мере за праћење система вештачке интелигенције током његовог читавог „животног“ циклуса?</h4>
+        <label>
+            <input type="radio" name="pitanje55" value="Да" {% if odgovor_pitanje55 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje55" value="Не" {% if odgovor_pitanje55 == 'Не' %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли постоји техничка документација (досје/портфолио) система вештачке интелигенције који се правовремено ажурира и да ли се та документација чува у складу са законом?</h4>
+        <label>
+            <input type="radio" name="pitanje56" value="Да" {% if odgovor_pitanje56 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje56" value="Не" {% if odgovor_pitanje56 == 'Не' %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли су успостављене мере за континуирано праћење квалитета улазних података система вештачке интелигенције?</h4>
+        <label>
+            <input type="checkbox" name="pitanje57" value="Да, и то:" {% if 'Да, и то:' in odgovor_pitanje57 %}checked{% endif %}> Да, и то:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje57" value="квантификовање недостајућих вредности" {% if 'квантификовање недостајућих вредности' in odgovor_pitanje57 %}checked{% endif %}> квантификовање недостајућих вредности
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje57" value="истраживање прекида у дотоку података" {% if 'истраживање прекида у дотоку података' in odgovor_pitanje57 %}checked{% endif %}> истраживање прекида у дотоку података
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje57" value="детектовање случаја када подаци нису довољни за извршење задатка" {% if 'детектовање случаја када подаци нису довољни за извршење задатка' in odgovor_pitanje57 %}checked{% endif %}> детектовање случаја када подаци нису довољни за извршење задатка
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje57" value="препознавање улазних података који садрже грешку, нису исправни, нису тачни или нису одговарајућег формата" {% if 'препознавање улазних података који садрже грешку, нису исправни, нису тачни или нису одговарајућег формата' in odgovor_pitanje57 %}checked{% endif %}> препознавање улазних података који садрже грешку, нису исправни, нису тачни или нису одговарајућег формата
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje57" value="друго:" {% if 'друго:' in odgovor_pitanje57 %}checked{% endif %}> друго:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje57" value="Не" {% if 'Не' in odgovor_pitanje57 %}checked{% endif %}> Не
+        </label>   
+        <div id="pitanje57_text" {% if odgovor_pitanje57 in ['Да, и то:', 'друго:'] %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje57_text_odgovor">{{ odgovor_pitanje57_text }}</textarea>
+        </div>
+
+        <h4>Да ли је могуће ретроактивно евидентирати који су подаци коришћени од стране система вештачке интелигенције да би се донела одређена одлука(е) или препорука(е)?</h4>
+        <label>
+            <input type="radio" name="pitanje58" value="Да" {% if odgovor_pitanje58 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje58" value="Не" {% if odgovor_pitanje58 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је могуће ретроактивно евидентирати који је модел или правило коришћено за доношење одређене одлуке(а) или препоруке(а)?</h4>
+        <label>
+            <input type="radio" name="pitanje59" value="Да" {% if odgovor_pitanje59 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje59" value="Не" {% if odgovor_pitanje59 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли су успостављене мере за континуирану процену квалитета излазних резултата система вештачке интелигенције?</h4>
+        <label>
+            <input type="checkbox" name="pitanje60" value="Да, и то:" {% if 'Да, и то:' in odgovor_pitanje60 %}checked{% endif %}> Да, и то:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje60" value="провером да ли су добијени резултати у оквиру очекиваног распона" {% if 'провером да ли су добијени резултати у оквиру очекиваног распона' in odgovor_pitanje60 %}checked{% endif %}> провером да ли су добијени резултати у оквиру очекиваног распона
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje60" value="откривањем неправилности у излазним резултатима" {% if 'откривањем неправилности у излазним резултатима' in odgovor_pitanje60 %}checked{% endif %}> откривањем неправилности у излазним резултатима
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje60" value="прерасподелом улазних података који су довели до неправилности" {% if 'прерасподелом улазних података који су довели до неправилности' in odgovor_pitanje60 %}checked{% endif %}> прерасподелом улазних података који су довели до неправилности
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje60" value="друго:" {% if 'друго:' in odgovor_pitanje60 %}checked{% endif %}> друго:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje60" value="Не" {% if 'Не' in odgovor_pitanje60 %}checked{% endif %}> Не
+        </label>   
+        <div id="pitanje60_text" {% if odgovor_pitanje60 in ['Да, и то:', 'друго:'] %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje60_text_odgovor">{{ odgovor_pitanje60_text }}</textarea>
+        </div>
+
+        <h4>Да ли се у систему вештачке интелигенције врши евидентирање приступа систему од стране корисника при доношењу одлука и препорука?</h4>
+        <label>
+            <input type="radio" name="pitanje61" value="Да" {% if odgovor_pitanje61 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje61" value="Не" {% if odgovor_pitanje61 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли се у систему вештачке интелигенције врши евидентирање метаподатака (датум и време почетка и завршетка коришћења система, базе података која је коришћена као референтни извор података у систему и др) о начину коришћења система?</h4>
+        <label>
+            <input type="radio" name="pitanje62" value="Да, и то:" {% if odgovor_pitanje62 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje62" value="Не" {% if odgovor_pitanje62 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje62_text" {% if odgovor_pitanje62 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje62_text_odgovor">{{ odgovor_pitanje62_text }}</textarea>
+        </div>
+
+        <h4>Да ли се у систему вештачке интелигенције врши евидентирање приступа систему од стране лица која контролишу процес доношења одлука?</h4>
+        <label>
+            <input type="radio" name="pitanje63" value="Да" {% if odgovor_pitanje63 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje63" value="Не" {% if odgovor_pitanje63 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је креиран документ који на јасан начин објашњава модел Система на начин да пружа информације о: 1) сврси алгоритма, 2) скупу података на којима је модел трениран, 3) извору и начину прикупљања података, 4) својствима алгоритма?</h4>
+        <label>
+            <input type="radio" name="pitanje64" value="Да, и то за: (означи број)" {% if odgovor_pitanje64 == 'Да, и то за: (означи број)' %}checked{% endif %} required> Да, и то за: (означи број)
+        </label>
+        <label>
+            <input type="radio" name="pitanje64" value="Не" {% if odgovor_pitanje64 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje64_text" {% if odgovor_pitanje64 == 'Да, и то за: (означи број)' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje64_text_odgovor">{{ odgovor_pitanje64_text }}</textarea>
+        </div>
+
+        <h2>Објашњивост</h2>
+
+        <p>Наредна група питања омогућава процену степена разумевања система вештачке интелигенције, односно начина и разлога због којих је систем пројектован на одређен начин. Тиме се развија поверење корисника у системе вештачке интелигенције. Одлуке које се доносе коришћењем система вештачке интелигенције морају бити објашњене и разумљиве онима на које непосредно или посредно утичу, у циљу евентуалног оспоравања таквих одлука. Објашњење тога зашто је модел предложио одређену одлуку/резултат (која комбинација улазних фактора је утицала на тај резултат) није увек могуће. Овакви случајеви односе се на тзв. „црне кутије“ и захтевају додатну пажњу, односно другу врсту мера за постизање објашњивости (на пример, могућност праћења, екстерне евалуације[1] и транспарентне комуникације о дометима и могућностима система вештачке интелигенције), наравно под претпоставком да систем вештачке интелигенције као целина поштује основна људска права. Објашњивост зависи од контекста, а нарочито од процене могућих негативних последица грешке/нетачних резултата на човеков живот.</p>
+        
+        <h4>Да ли је корисницима објашњен начин на који систем вештачке интелигенције предлаже одлуке?</h4>
+        <label>
+            <input type="checkbox" name="pitanje65" value="Да, и то:" {% if 'Да, и то:' in odgovor_pitanje65 %}checked{% endif %}> Да, и то:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje65" value="у корисничком упутству (видео, аудио, документ и сл)" {% if 'у корисничком упутству (видео, аудио, документ и сл)' in odgovor_pitanje65 %}checked{% endif %}> у корисничком упутству (видео, аудио, документ и сл)
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje65" value="организовањем радионица, обука и сл." {% if 'организовањем радионица, обука и сл.' in odgovor_pitanje65 %}checked{% endif %}> организовањем радионица, обука и сл.
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje65" value="Не" {% if 'Не' in odgovor_pitanje65 %}checked{% endif %}> Не
+        </label> 
+        <div id="pitanje65_text" {% if odgovor_pitanje65 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje65_text_odgovor">{{ odgovor_pitanje65_text }}</textarea>
+        </div>  
+        
+        <h4>Да ли је успостављен механизам за праћење степена разумевања корисника (оптималног обима/степена објашњења)?</h4>
+        <label>
+            <input type="radio" name="pitanje66" value="Да, и то:" {% if odgovor_pitanje66 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje66" value="Не" {% if odgovor_pitanje66 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje66_text" {% if odgovor_pitanje66 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje66_text_odgovor">{{ odgovor_pitanje66_text }}</textarea>
+        </div>
+
+        <h4>Да ли се континуирано прати и анализира разумевање корисника ради организовања додатних обука или вршења одговарајућих корекција система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje67" value="Да, и то:" {% if odgovor_pitanje67 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje67" value="Не" {% if odgovor_pitanje67 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje67_text" {% if odgovor_pitanje67 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje67_text_odgovor">{{ odgovor_pitanje67_text }}</textarea>
+        </div>
+
+        <h2>Комуникација</h2>
+
+        <p>Наредна група питања омогућава процену тога да ли је систем вештачке интелигенције у складу са специфичним случајевима коришћења, односно могућностима и ограничењима система. Ово може обухватити и обавештавање о степену тачности и ограничењима система вештачке интелигенције.</p>
+        
+        <h4>У случају коришћења интерактивних система вештачке интелигенције (чет-ботови, робо-адвокати), да ли су корисници обавештени да су у интеракцији са системом вештачке интелигенције, а не с људским бићем?</h4>
+        <label>
+            <input type="radio" name="pitanje68" value="Да, на јасан и транспарентан начин, већ у првом кораку, при сваком приступу систему" {% if odgovor_pitanje68 == 'Да, на јасан и транспарентан начин, већ у првом кораку, при сваком приступу систему' %}checked{% endif %} required> Да, на јасан и транспарентан начин, већ у првом кораку, при сваком приступу систему
+        </label>
+        <label>
+            <input type="radio" name="pitanje68" value="Не" {% if odgovor_pitanje68 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је кориснику који не жели да комуницира са системом вештачке интелигенције обезбеђен други начин комуникације?</h4>
+        <label>
+            <input type="radio" name="pitanje69" value="Да и то: (навести начин)" {% if odgovor_pitanje69 == 'Да и то: (навести начин)' %}checked{% endif %} required> Да и то: (навести начин)
+        </label>
+        <label>
+            <input type="radio" name="pitanje69" value="Не" {% if odgovor_pitanje69 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje69_text" {% if odgovor_pitanje69 == 'Да и то: (навести начин)' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje69_text_odgovor">{{ odgovor_pitanje69_text }}</textarea>
+        </div>
+
+        <h4>Да ли је успостављен механизам за информисање о намени и критеријумима на основу којих се доноси одлука?</h4>
+        <label>
+            <input type="radio" name="pitanje70" value="Да, и то:" {% if odgovor_pitanje70 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje70" value="Не" {% if odgovor_pitanje70 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje70_text" {% if odgovor_pitanje70 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje70_text_odgovor">{{ odgovor_pitanje70_text }}</textarea>
+        </div>
+
+        <h4>Да ли су корисници информисани о предностима коришћења система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje71" value="Да, и то:" {% if odgovor_pitanje71 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje71" value="Не" {% if odgovor_pitanje71 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje71_text" {% if odgovor_pitanje71 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje71_text_odgovor">{{ odgovor_pitanje71_text }}</textarea>
+        </div>
+
+        <h4>Да ли су корисници обавештени о техничким ограничењима и потенцијалним ризицима система вештачке интелигенције значајним за доношење одлуке (нпр. који је ниво тачности и/или распон могућих грешака система)?</h4>
+        <label>
+            <input type="radio" name="pitanje72" value="Да, сва ограничења су наведена у посебном одељку" {% if odgovor_pitanje72 == 'Да, сва ограничења су наведена у посебном одељку' %}checked{% endif %} required> Да, сва ограничења су наведена у посебном одељку
+        </label>
+        <label>
+            <input type="radio" name="pitanje72" value="Не" {% if odgovor_pitanje72 == 'Не' %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли је припремљен материјал за обуку за адекватно коришћење система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje73" value="Да" {% if odgovor_pitanje73 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje73" value="Не" {% if odgovor_pitanje73 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <!-- Ostala pitanja -->
+        <!-- ... -->
+        <button type="submit" name="action" value="prev">Претходна страница</button>    
+        <button type="submit" name="action" value="next">Следећа страница</button>
+  
+    <br><br>
+        <div class="progress-bar">
+            <div class="progress progress-text" style="width: {{ progres }}%;">{{ progres }}%</div>
+        </div>
+        <br>
+    </form>
+
+    <script>
+        const checkboxes57 = document.querySelectorAll('input[name="pitanje57"]');
+        const checkboxes60 = document.querySelectorAll('input[name="pitanje60"]');
+        const radioButtons62 = document.querySelectorAll('input[name="pitanje62"]');
+        const radioButtons64 = document.querySelectorAll('input[name="pitanje64"]');
+        const checkboxes65 = document.querySelectorAll('input[name="pitanje65"]');
+        const radioButtons66 = document.querySelectorAll('input[name="pitanje66"]');
+        const radioButtons67 = document.querySelectorAll('input[name="pitanje67"]');
+        const radioButtons69 = document.querySelectorAll('input[name="pitanje69"]');
+        const radioButtons70 = document.querySelectorAll('input[name="pitanje70"]');
+        const radioButtons71 = document.querySelectorAll('input[name="pitanje71"]');
+        
+
+        const textPolje57 = document.getElementById('pitanje57_text');
+        const textPolje60 = document.getElementById('pitanje60_text');
+        const textPolje62 = document.getElementById('pitanje62_text');
+        const textPolje64 = document.getElementById('pitanje64_text');
+        const textPolje65 = document.getElementById('pitanje65_text');
+        const textPolje66 = document.getElementById('pitanje66_text');
+        const textPolje67 = document.getElementById('pitanje67_text');
+        const textPolje69 = document.getElementById('pitanje69_text');
+        const textPolje70 = document.getElementById('pitanje70_text');
+        const textPolje71 = document.getElementById('pitanje71_text');
+        
+
+      
+        checkboxes57.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked && this.value === 'Да, и то:') {
+                    textPolje57.style.display = 'block';
+                } 
+                
+                else if (this.checked && this.value === 'друго:') {
+                    textPolje57.style.display = 'block';
+                }
+                
+                let checkedCount = 0;
+                let otherChecked = false;
+
+                checkboxes57.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        checkedCount++;
+                        if (checkbox.value !== 'Не') {
+                            otherChecked = true;
+                        }
+                    }
+                });
+
+                if (checkedCount === 0 || (checkedCount === 1 && !otherChecked)) {
+                    textPolje57.style.display = 'none';
+                }
+                let anyCheckboxChecked = false;
+                checkboxes57.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        anyCheckboxChecked = true;
+                    }
+                });
+
+                if (!anyCheckboxChecked) {
+                    textPolje57.style.display = 'none';
+                }
+            });
+        });
+
+        checkboxes60.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked && this.value === 'Да, и то:') {
+                    textPolje60.style.display = 'block';
+                } 
+                
+                else if (this.checked && this.value === 'друго:') {
+                    textPolje60.style.display = 'block';
+                }
+                
+                let checkedCount = 0;
+                let otherChecked = false;
+
+                checkboxes60.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        checkedCount++;
+                        if (checkbox.value !== 'Не') {
+                            otherChecked = true;
+                        }
+                    }
+                });
+
+                if (checkedCount === 0 || (checkedCount === 1 && !otherChecked)) {
+                    textPolje60.style.display = 'none';
+                }
+                let anyCheckboxChecked = false;
+                checkboxes60.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        anyCheckboxChecked = true;
+                    }
+                });
+
+                if (!anyCheckboxChecked) {
+                    textPolje60.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons62.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje62.style.display = 'block';
+                } else {
+                    textPolje62.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons64.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то за: (означи број)') {
+                    textPolje64.style.display = 'block';
+                } else {
+                    textPolje64.style.display = 'none';
+                }
+            });
+        });
+
+        checkboxes65.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked && this.value === 'Да, и то:') {
+                    textPolje65.style.display = 'block';
+                } 
+                
+                
+                let checkedCount = 0;
+                let otherChecked = false;
+
+                checkboxes65.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        checkedCount++;
+                        if (checkbox.value !== 'Не') {
+                            otherChecked = true;
+                        }
+                    }
+                });
+
+                if (checkedCount === 0 || (checkedCount === 1 && !otherChecked)) {
+                    textPolje65.style.display = 'none';
+                }
+                let anyCheckboxChecked = false;
+                checkboxes65.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        anyCheckboxChecked = true;
+                    }
+                });
+
+                if (!anyCheckboxChecked) {
+                    textPolje65.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons66.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje66.style.display = 'block';
+                } else {
+                    textPolje66.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons67.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje67.style.display = 'block';
+                } else {
+                    textPolje67.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons69.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да и то: (навести начин)') {
+                    textPolje69.style.display = 'block';
+                } else {
+                    textPolje69.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons70.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje70.style.display = 'block';
+                } else {
+                    textPolje70.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons71.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje71.style.display = 'block';
+                } else {
+                    textPolje71.style.display = 'none';
+                }
+            });
+        });
+       
+    </script>
+</body>
+</html>

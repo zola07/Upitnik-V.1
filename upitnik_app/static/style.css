@@ -1,0 +1,203 @@
+/* Kaskadni stilizovani list (CSS reset) */
+html, body, ul, ol, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, input, textarea, button, label, figure, figcaption, hr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('{{ url_for('static', filename='font/DejaVuSans.ttf') }}');
+}
+
+html{
+    height: 100%;
+}
+body {
+    font-family: 'DejaVuSans', sans-serif; /* Koristi Arial font */    background-color: #204877;
+    color: #fff;
+    margin: 50px;
+    height: 100%;
+}
+
+h1 {
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h3 {
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+h4 {
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+/* Stilizacija forme */
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    border-radius: 0px;
+    max-width: 70%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+a#button{
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a#button:hover {
+    background-color: #fff;
+    color: #204877;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 40px;
+
+}
+
+input{
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #fff;
+    color: #204877;
+}
+
+/* Stil za progres bar kontejner */
+.progress-bar {
+    width: 100%;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 0px;
+  }
+  
+  /* Stil za progres bar unutar kontejnera */
+  .progress {
+    height: 100%;
+    border-radius: 0px;
+    background-color: #3498db;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  /* Stil za tekst unutar progres bara */
+  .progress-text {
+    color: #fff;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: center;
+  }
+
+  
+/* Stilovi za meni sa leve strane */
+.side-menu {
+    display: flex;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #fff;
+    padding: 20px;
+    z-index: 1;
+    align-items: center;
+  }
+  
+  .side-menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .side-menu li {
+    margin-bottom: 10px;
+  }
+  
+  .side-menu a {
+    text-decoration: none;
+    color: #204877;
+    font-size: 18px;
+  }
+
+  /* Stilovi za sadržaj */
+form {
+    margin-left: 260px; /* Margina sa leve strane sadržaja kako bi se oslobodio prostor za meni */
+  }
+
+form#index{
+    margin-left: 0px; /* Margina sa leve strane sadržaja kako bi se oslobodio prostor za meni */
+  }
+form#upitnik{
+    margin-left: 0px; /* Margina sa leve strane sadržaja kako bi se oslobodio prostor za meni */
+  }
+#logo{
+    width: 300px;
+    float: right;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  #logo-menu{
+    width: 200px;
+    float: left;
+    margin-bottom: 50px;
+  }
+  li{
+    margin-bottom: 5px;
+  }
+
+  form#kraj{
+    margin-left: 0;
+  }

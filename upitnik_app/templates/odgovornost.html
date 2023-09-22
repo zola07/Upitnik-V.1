@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Одговорност</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+</head>
+<body>
+    <div class="side-menu">
+        <ul>
+            <img id="logo-menu" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+            <li><a href="/upitnik">Почетна страна</a></li>
+            <li><a href="/delovanje_i_kontrola">Деловање и контрола</a></li>
+            <li><a href="/tehnicka_pouzdanost_i_bezbednost">Техничка поузданост и безбедност</a></li>
+            <li><a href="/privatnost_zastita_podataka_i_upravljanje_podacima">Приватност, заштита података о личности и управљање подацима</a></li>
+            <li><a href="/transparentnost">Транспарентност</a></li>
+            <li><a href="/razlicitost_nediskriminacija_i_ravnopravnost">Различитост, недискриминација и равноправност</a></li>
+            <li><a href="/drustveno_i_ekonomsko_blagostanje">Друштвено и еколошко благостање</a></li>
+            <li><a href="/odgovornost">Одговорност</a></li>
+            <!-- Dodajte linkove za ostale stranice -->
+        </ul>
+    </div>
+   
+    <form method="POST" action="/odgovornost">
+        <input type="hidden" name="jedinstveni_id" value="{{ jedinstveni_id }}">
+        <h1>Одговорност</h1>
+        <!-- Trinaesto pitanje sa radio button-om i text poljem -->
+        <p>Питање одговорности је уско повезано с правилним планирањем развоја и надзора над Системом у	фази продукције, управљањем ризицима и процедурама за утврђивање одговорности и санације штете која настане као последица примене Система. Не искључујући одговорност других лица у ланцу креирања и продукције Система, дизајнери и програмери Система су лица с високим степеном одговорности приликом разматрања дизајна, развоја, процеса одлучивања и исхода Система. То не значи да поменута лица немају право или не треба да раде у мултидисциплинарном тиму, напротив. Људска логика и просуђивање су кључни фактори у животу Система који по претпоставци доноси објективно-логичке одлуке, јер су људи ти који пишу алгоритме, дефинишу успех или неуспех, припремају податке и скупове података, тренирају моделе, врше евалуацију, доносе одлуке о употреби Система. Зато је важно да човек увек буде свестан тога и да тежи том аксиому без обзира на околности под којима развија Систем. Сва лица укључена у стварање Система у било ком кораку одговорна су за разматрање његовог утицаја у окружењу у коме ће бити примењен, као и компаније које су инвестирале у његов развој.
+            </p>
+
+        <h2>Могућност ревизије</h2>
+
+        <p>Овај одељак помаже у самооцењивању постојећег или неопходног нивоа који би био потребан за процену система вештачке интелигенције, од стране интерних и екстерних ревизора. Могућност спровођења евалуација као и приступ подацима о наведеним евалуацијама може допринети поузданој вештачкој интелигенцији. У софтверским решењима која утичу на основна права човека, укључујући апликације које су критичне за безбедност, требало би да постоји могућност да системи вештачке интелигенције буду у могућности да буду независно ревидирани. Ово не значи нужно да информације о пословним моделима и интелектуалној својини у вези са системом вештачке интелигенције морају увек бити отворено доступне.</p>
+        
+        <h4>Да ли је успостављен механизам којим се омогућава ревизија система вештачке интелигенције?</h4>
+        <label>
+            <input type="checkbox" name="pitanje102" value="Да, кроз следљивост процеса развоја" {% if 'Да, кроз следљивост процеса развоја' in odgovor_pitanje102 %}checked{% endif %}> Да, кроз следљивост процеса развоја
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje102" value="Да, праћењем података којим се тренира систем и евидентирањем исхода" {% if 'Да, праћењем података којим се тренира систем и евидентирањем исхода' in odgovor_pitanje102 %}checked{% endif %}> Да, праћењем података којим се тренира систем и евидентирањем исхода
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje102" value="Да, евидентирањем позитивних и негативних утицаја коришћења система" {% if 'Да, евидентирањем позитивних и негативних утицаја коришћења система' in odgovor_pitanje102 %}checked{% endif %}> Да, евидентирањем позитивних и негативних утицаја коришћења система
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje102" value="Не" {% if 'Не' in odgovor_pitanje102 %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли је омогућено да (независно) треће лице може да изврши ревизију система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje103" value="Да, евидентирањем позитивних и негативних утицаја коришћења система" {% if odgovor_pitanje103 == 'Да, евидентирањем позитивних и негативних утицаја коришћења система' %}checked{% endif %} required> Да, евидентирањем позитивних и негативних утицаја коришћења система
+        </label>
+        <label>
+            <input type="radio" name="pitanje103" value="Не" {% if odgovor_pitanje103 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h2>Управљање ризицима</h2>
+
+        <p>Управљање ризицима захтева идентификовање, процену, документовање и свођење на минимум потенцијалних негативних утицаја система вештачке интелигенције. Узбуњивачима, организацијама цивилног друштва, синдикатима и другим субјектима мора бити доступна одговарајућа заштита када пријављују оправдану забринутост због коришћења система вештачке интелигенције.
+
+        Ово захтева да треба да буду идентификовани релевантни интереси и вредности које систем вештачке интелигенције подразумева и да, ако дође до сукоба, треба да буду експлицитно признати и оцењени компромиси у смислу њиховог ризика по безбедност и етичке принципе, укључујући основна права. Свака одлука о томе који компромис треба да буде начињен, треба дa буде добро образложена и правилно документована. Када дође до штетног утицаја, треба предвидети доступне механизме који обезбеђују адекватну накнаду.
+        </p>
+
+        <h4>Да ли је дефинисан процес ревизије од стране трећих лица који обухвата испитивање етичких питања и мера праћења одговорности?</h4>
+        <label>
+            <input type="radio" name="pitanje104" value="Да, и то:" {% if odgovor_pitanje104 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje104" value="Не" {% if odgovor_pitanje104 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje104_text" {% if odgovor_pitanje104 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje104_text_odgovor">{{ odgovor_pitanje104_text }}</textarea>
+        </div>
+
+        <h4>Да ли је организована обука о ризицима коришћења система вештачке интелигенције и одговарајућем правном оквиру?</h4>
+        <label>
+            <input type="radio" name="pitanje105" value="Да, и то:" {% if odgovor_pitanje105 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje105" value="Не" {% if odgovor_pitanje105 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje105_text" {% if odgovor_pitanje105 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje105_text_odgovor">{{ odgovor_pitanje105_text }}</textarea>
+        </div>
+
+        <h4>Да ли имате одбор који се бави етичким питањима примене система вештачке интелигенције, или сличан механизам којим се обезбеђује дискусија о одговорности и етичким праксама?</h4>
+        <label>
+            <input type="radio" name="pitanje106" value="Да, и то:" {% if odgovor_pitanje106 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje106" value="Не" {% if odgovor_pitanje106 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje106_text" {% if odgovor_pitanje106 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje106_text_odgovor">{{ odgovor_pitanje106_text }}</textarea>
+        </div>
+
+        <h4>Да ли је успостављен механизам за дискусију, континуирано праћење и процену доследности примене ових Смерница за систем вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje107" value="Да" {% if odgovor_pitanje107 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje107" value="Не" {% if odgovor_pitanje107 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли предвиђени процес укључује идентификацију и документовање неусаглашених ставова у вези с различитим етичким принципима и објашњењима одлука?</h4>
+        <label>
+            <input type="radio" name="pitanje108" value="Да" {% if odgovor_pitanje108 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje108" value="Не" {% if odgovor_pitanje108 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је спроведена обука лица укључених у процес?</h4>
+        <label>
+            <input type="radio" name="pitanje109" value="Да" {% if odgovor_pitanje109 == 'Да' %}checked{% endif %} required> Да
+        </label>
+            <input type="radio" name="pitanje109" value="Не" {% if odgovor_pitanje109 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је трећим лицима (добављачима, крајњим корисницима, дистрибутерима/продавцима и др) омогућена пријава потенцијалних рањивости, ризика и/или дискриминације у систему вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje110" value="Да" {% if odgovor_pitanje110 == 'Да' %}checked{% endif %} required> Да
+        </label>
+            <input type="radio" name="pitanje110" value="Не" {% if odgovor_pitanje110 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли евентуалне пријаве рањивости, ризика и дискриминације захтевају ревизију процеса управљања ризиком?</h4>
+        <label>
+            <input type="radio" name="pitanje111" value="Да" {% if odgovor_pitanje111 == 'Да' %}checked{% endif %} required> Да
+        </label>
+            <input type="radio" name="pitanje111" value="Не" {% if odgovor_pitanje111 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>У случају чињења штете појединцима да ли је успостављен механизам за обештећење?</h4>
+        <label>
+            <input type="radio" name="pitanje112" value="Да" {% if odgovor_pitanje112 == 'Да' %}checked{% endif %} required> Да
+        </label>
+            <input type="radio" name="pitanje112" value="Не" {% if odgovor_pitanje112 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <!-- Ostala pitanja -->
+        <!-- ... -->
+        <br><br>
+        <button type="submit" name="action" value="prev">Претходна страница</button>    
+        <button type="submit" name="action" value="next">Следећа страница</button>
+      <br><br>
+        <div class="progress-bar">
+            <div class="progress progress-text" style="width: {{ progres }}%;">{{ progres }}%</div>
+        </div>
+        <br>
+    </form>
+
+    <script>
+        const radioButtons104 = document.querySelectorAll('input[name="pitanje104"]');
+        const radioButtons105 = document.querySelectorAll('input[name="pitanje105"]');
+        const radioButtons106 = document.querySelectorAll('input[name="pitanje106"]');
+        
+        const textPolje104 = document.getElementById('pitanje104_text');
+        const textPolje105 = document.getElementById('pitanje105_text');
+        const textPolje106 = document.getElementById('pitanje106_text');
+
+        radioButtons104.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje104.style.display = 'block';
+                }
+                else {
+                    textPolje104.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons105.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje105.style.display = 'block';
+                }
+                else {
+                    textPolje105.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons106.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje106.style.display = 'block';
+                }
+                else {
+                    textPolje106.style.display = 'none';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

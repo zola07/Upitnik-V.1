@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Приватност, заштита података о личности и управљање подацима</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+</head>
+<body>
+    <div class="side-menu">
+        <ul>
+            <img id="logo-menu" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+            <li><a href="/upitnik">Почетна страна</a></li>
+            <li><a href="/delovanje_i_kontrola">Деловање и контрола</a></li>
+            <li><a href="/tehnicka_pouzdanost_i_bezbednost">Техничка поузданост и безбедност</a></li>
+            <li><a href="/privatnost_zastita_podataka_i_upravljanje_podacima">Приватност, заштита података о личности и управљање подацима</a></li>
+            <li><a href="/transparentnost">Транспарентност</a></li>
+            <li><a href="/razlicitost_nediskriminacija_i_ravnopravnost">Различитост, недискриминација и равноправност</a></li>
+            <li><a href="/drustveno_i_ekonomsko_blagostanje">Друштвено и еколошко благостање</a></li>
+            <li><a href="/odgovornost">Одговорност</a></li>
+            <!-- Dodajte linkove za ostale stranice -->
+        </ul>
+    </div>
+
+    <form method="POST" action="/privatnost_zastita_podataka_i_upravljanje_podacima">
+        <input type="hidden" name="jedinstveni_id" value="{{ jedinstveni_id }}">
+        <h1>Приватност, заштита података о личности и управљање подацима</h1>
+
+        <h4>Да ли је анализиран утицај система вештачке интелигенције на право на приватност, право на физички, психички и/или морални интегритет, као и право на заштиту података о личности?</h4>
+        <label>
+            <input type="checkbox" name="pitanje43" value="Да, и то:" {% if 'Да, и то:' in odgovor_pitanje43 %}checked{% endif %}> Да, и то:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje43" value="Не, не обрађују се подаци о личности" {% if 'Не, не обрађују се подаци о личности' in odgovor_pitanje43 %}checked{% endif %}> Не, не обрађују се подаци о личности
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje43" value="Не" {% if 'Не' in odgovor_pitanje43 %}checked{% endif %}> Не
+        </label>        
+        <div id="pitanje43_text" {% if odgovor_pitanje43 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje43_text_odgovor">{{ odgovor_pitanje43_text }}</textarea>
+        </div>
+        
+        <h4>У зависности од случаја коришћења система вештачке интелигенције, да ли је успостављен механизам којим се посебно означавају елементи система који утичу на приватност?</h4>
+        <label>
+            <input type="radio" name="pitanje44" value="Да, и то:" {% if odgovor_pitanje44 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje44" value="Не" {% if odgovor_pitanje44 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje44_text" {% if odgovor_pitanje44 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje44_text_odgovor">{{ odgovor_pitanje44_text }}</textarea>
+        </div>
+        
+        <h4>Да ли ће припрема, тренирање, развој и коришћење система вештачке интелигенције захтевати обраду података о личности (укључујући посебне врсте података о личности)?</h4>
+        <label>
+            <input type="radio" name="pitanje45" value="Да, и то:" {% if odgovor_pitanje45 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje45" value="Не" {% if odgovor_pitanje45 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje45_text" {% if odgovor_pitanje45 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje45_text_odgovor">{{ odgovor_pitanje45_text }}</textarea>
+        </div>
+
+        <h4>Да ли постоји правни основ за (намеравану) обраду података о личности?</h4>
+        <label>
+            <input type="checkbox" name="pitanje46" value="Да, и то:" {% if 'Да, и то:' in odgovor_pitanje46 %}checked{% endif %}> Да, и то:
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje46" value="пристанак лица" {% if 'пристанак лица' in odgovor_pitanje46 %}checked{% endif %}> пристанак лица
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje46" value="уговор с лицем" {% if 'уговор с лицем' in odgovor_pitanje46 %}checked{% endif %}> уговор с лицем
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje46" value="поштовање правних обавеза руковаоца" {% if 'поштовање правних обавеза руковаоца' in odgovor_pitanje46 %}checked{% endif %}> поштовање правних обавеза руковаоца
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje46" value="заштита животно важних интереса лица" {% if 'заштита животно важних интереса лица' in odgovor_pitanje46 %}checked{% endif %}> заштита животно важних интереса лица
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje46" value="обављање послова у јавном интересу/извршење законом прописаних овлашћења руковаоца" {% if 'обављање послова у јавном интересу/извршење законом прописаних овлашћења руковаоца' in odgovor_pitanje46 %}checked{% endif %}> обављање послова у јавном интересу/извршење законом прописаних овлашћења руковаоца
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje46" value="легитимни интерес руковаоца/трећег лица" {% if 'легитимни интерес руковаоца/трећег лица' in odgovor_pitanje46 %}checked{% endif %}> легитимни интерес руковаоца/трећег лица
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje46" value="Не" {% if 'Не' in odgovor_pitanje46 %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje46_text" {% if odgovor_pitanje46 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje46_text_odgovor">{{ odgovor_pitanje46_text }}</textarea>
+        </div>      
+        
+        <h4>Уколико се обрађују посебне врсте података о личности, да ли су испуњени услови за дозвољеност такве обраде?</h4>
+        <label>
+            <input type="radio" name="pitanje47" value="Да" {% if odgovor_pitanje47 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje47" value="Не" {% if odgovor_pitanje47 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <label>
+            <input type="radio" name="pitanje47" value="Не обрађују се посебне врсте података о личности" {% if odgovor_pitanje47 == 'Не обрађују се посебне врсте података о личности' %}checked{% endif %}> Не обрађују се посебне врсте података о личности
+        </label>
+
+        <h4>Да ли је одређена (оправдана и законита) сврха обраде података о личности?</h4>
+        <label>
+            <input type="radio" name="pitanje48" value="Да, и то:" {% if odgovor_pitanje48 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje48" value="Не" {% if odgovor_pitanje48 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje48_text" {% if odgovor_pitanje48 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje48_text_odgovor">{{ odgovor_pitanje48_text }}</textarea>
+        </div>
+
+        <h4>Да ли је област на коју се примењује систем вештачке интелигенције уређена посебним прописима и да ли се (намеравана) обрада података о личности врши у складу с тим посебним прописима?</h4>
+        <label>
+            <input type="radio" name="pitanje49" value="Да, и то:" {% if odgovor_pitanje49 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje49" value="Не" {% if odgovor_pitanje49 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje49_text" {% if odgovor_pitanje49 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje49_text_odgovor">{{ odgovor_pitanje49_text }}</textarea>
+        </div>
+
+        <h4>Да ли је спроведена нека од следећих мера (од којих су неке обавезне према Закону о заштити података о личности („Сл. гласник РС“, број 87/2018) и закону/пропису друге земље/ЕУ чија је примена обавезна у конкретном случају)?</h4>
+        <label>
+            <input type="checkbox" name="pitanje50" value="извршена је процена утицаја обраде на заштиту података о личности" {% if 'извршена је процена утицаја обраде на заштиту података о личности' in odgovor_pitanje50 %}checked{% endif %}> извршена је процена утицаја обраде на заштиту података о личности
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje50" value="одређено је лице за заштиту података о личности које је укључено у развој, набавку или употребу система вештачке интелигенције" {% if 'одређено је лице за заштиту података о личности које је укључено у развој, набавку или употребу система вештачке интелигенције' in odgovor_pitanje50 %}checked{% endif %}> одређено је лице за заштиту података о личности које је укључено у развој, набавку или употребу система вештачке интелигенције
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje50" value="предвиђене су техничке, организационе и кадровске мере заштите података о личности (укључујући ограничен приступ подацима од стране овлашћених лица, механизме за евидентирање/бележење приступа подацима и уношење измена и др)" {% if 'предвиђене су техничке, организационе и кадровске мере заштите података о личности (укључујући ограничен приступ подацима од стране овлашћених лица, механизме за евидентирање/бележење приступа подацима и уношење измена и др)' in odgovor_pitanje50 %}checked{% endif %}> предвиђене су техничке, организационе и кадровске мере заштите података о личности (укључујући ограничен приступ подацима од стране овлашћених лица, механизме за евидентирање/бележење приступа подацима и уношење измена и др)
+        </label> 
+        <label>
+            <input type="checkbox" name="pitanje50" value="предвиђени су механизми за постизање уграђене и подразумеване приватности (енг. privacy by design & privacy by default) као што су: енкрипција, псеудонимизација, агрегација, анонимизација и др." {% if 'предвиђени су механизми за постизање уграђене и подразумеване приватности (енг. privacy by design & privacy by default) као што су: енкрипција, псеудонимизација, агрегација, анонимизација и др.' in odgovor_pitanje50 %}checked{% endif %}> предвиђени су механизми за постизање уграђене и подразумеване приватности (енг. privacy by design & privacy by default) као што су: енкрипција, псеудонимизација, агрегација, анонимизација и др.
+        </label>
+        <label>
+            <input type="checkbox" name="pitanje50" value="омогућено је спровођење начела обраде података о личности, укључујући начело свођења података на минимум, у односу на конкретне податке (укључујући и посебне врсте података о личности)" {% if 'омогућено је спровођење начела обраде података о личности, укључујући начело свођења података на минимум, у односу на конкретне податке (укључујући и посебне врсте података о личности)' in odgovor_pitanje50 %}checked{% endif %}> омогућено је спровођење начела обраде података о личности, укључујући начело свођења података на минимум, у односу на конкретне податке (укључујући и посебне врсте података о личности)
+        </label> 
+
+        <h4>Да ли је у систему вештачке интелигенције омогућено да лице да опозив пристанка на обраду података о личности, приговор и брисање података о личности по захтеву лица на које се подаци односе?</h4>
+        <label>
+            <input type="radio" name="pitanje51" value="Да" {% if odgovor_pitanje51 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje51" value="Не" {% if odgovor_pitanje51 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли су узете у обзир последице обраде података о личности по приватност лица и право на заштиту података о личности, током целокупног животног циклуса система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje52" value="Да" {% if odgovor_pitanje52 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje52" value="Не" {% if odgovor_pitanje52 == 'Не' %}checked{% endif %}> Не
+        </label>
+    
+        <h4>Да ли постоје последице по приватност и заштиту података о личности услед обраде других података у оквиру система вештачке интелигенције који нису подаци о личности?</h4>
+        <label>
+            <input type="radio" name="pitanje53" value="Да" {% if odgovor_pitanje53 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje53" value="Не" {% if odgovor_pitanje53 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је систем вештачке интелигенције усклађен са одговарајућим стандардима или другим општеприхваћеним протоколима за управљање подацима?</h4>
+        <label>
+            <input type="radio" name="pitanje54" value="Да, и то са:" {% if odgovor_pitanje54 == 'Да, и то са:' %}checked{% endif %} required> Да, и то са:
+        </label>
+        <label>
+            <input type="radio" name="pitanje54" value="Не" {% if odgovor_pitanje54 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje54_text" {% if odgovor_pitanje54 == 'Да, и то са:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje54_text_odgovor">{{ odgovor_pitanje54_text }}</textarea>
+        </div>
+
+        <!-- Ostala pitanja -->
+        <!-- ... -->
+        
+        <button type="submit" name="action" value="prev">Претходна страница</button>    
+        <button type="submit" name="action" value="next">Следећа страница</button>
+
+    <br><br>
+        <div class="progress-bar">
+            <div class="progress progress-text" style="width: {{ progres }}%;">{{ progres }}%</div>
+        </div>
+        <br>
+    </form>
+
+    <script>
+       
+        const checkboxes43 = document.querySelectorAll('input[name="pitanje43"]');
+        const radioButtons44 = document.querySelectorAll('input[name="pitanje44"]');
+        const radioButtons45 = document.querySelectorAll('input[name="pitanje45"]');
+        const checkboxes46 = document.querySelectorAll('input[name="pitanje46"]');
+        const radioButtons48 = document.querySelectorAll('input[name="pitanje48"]');
+        const radioButtons49 = document.querySelectorAll('input[name="pitanje49"]');
+        const radioButtons54 = document.querySelectorAll('input[name="pitanje54"]');
+      
+        const textPolje43 = document.getElementById('pitanje43_text');
+        const textPolje44 = document.getElementById('pitanje44_text');
+        const textPolje45 = document.getElementById('pitanje45_text');
+        const textPolje46 = document.getElementById('pitanje46_text');
+        const textPolje48 = document.getElementById('pitanje48_text');
+        const textPolje49 = document.getElementById('pitanje49_text');
+        const textPolje54 = document.getElementById('pitanje54_text');
+    
+        checkboxes43.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked && this.value === 'Да, и то:') {
+                    textPolje43.style.display = 'block';
+                }
+                
+
+                let checkedCount = 0;
+                let otherChecked = false;
+
+                checkboxes43.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        checkedCount++;
+                        if (checkbox.value === 'Да, и то:') {
+                            otherChecked = true;
+                        }
+                    }
+                });
+
+                if (checkedCount === 0 || !otherChecked) {
+                    textPolje43.style.display = 'none';
+                }
+                let anyCheckboxChecked = false;
+                checkboxes43.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        anyCheckboxChecked = true;
+                    }
+                });
+
+                if (!anyCheckboxChecked) {
+                    textPolje43.style.display = 'none';
+                }
+            });
+        });
+
+
+        radioButtons44.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje44.style.display = 'block';
+                }
+                else {
+                    textPolje44.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons45.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje45.style.display = 'block';
+                }
+                else {
+                    textPolje45.style.display = 'none';
+                }
+            });
+        });
+
+
+        checkboxes46.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked && this.value === 'Да, и то:') {
+                    textPolje46.style.display = 'block';
+                }
+                
+
+                let checkedCount = 0;
+                let otherChecked = false;
+
+                checkboxes46.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        checkedCount++;
+                        if (checkbox.value === 'Да, и то:') {
+                            otherChecked = true;
+                        }
+                    }
+                });
+
+                if (checkedCount === 0 || !otherChecked) {
+                    textPolje46.style.display = 'none';
+                }
+                let anyCheckboxChecked = false;
+                checkboxes46.forEach((checkbox) => {
+                    if (checkbox.checked) {
+                        anyCheckboxChecked = true;
+                    }
+                });
+
+                if (!anyCheckboxChecked) {
+                    textPolje46.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons48.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje48.style.display = 'block';
+                }
+                else {
+                    textPolje48.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons49.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje49.style.display = 'block';
+                }
+                else {
+                    textPolje49.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons54.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то са:') {
+                    textPolje54.style.display = 'block';
+                }
+                else {
+                    textPolje54.style.display = 'none';
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>

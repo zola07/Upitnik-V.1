@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Различитост, недискриминација и равноправност</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"></head>
+</head>
+<body>
+    <div class="side-menu">
+        <ul>
+            <img id="logo-menu" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+            <li><a href="/upitnik">Почетна страна</a></li>
+            <li><a href="/delovanje_i_kontrola">Деловање и контрола</a></li>
+            <li><a href="/tehnicka_pouzdanost_i_bezbednost">Техничка поузданост и безбедност</a></li>
+            <li><a href="/privatnost_zastita_podataka_i_upravljanje_podacima">Приватност, заштита података о личности и управљање подацима</a></li>
+            <li><a href="/transparentnost">Транспарентност</a></li>
+            <li><a href="/razlicitost_nediskriminacija_i_ravnopravnost">Различитост, недискриминација и равноправност</a></li>
+            <li><a href="/drustveno_i_ekonomsko_blagostanje">Друштвено и еколошко благостање</a></li>
+            <li><a href="/odgovornost">Одговорност</a></li>
+            <!-- Dodajte linkove za ostale stranice -->
+        </ul>
+    </div>
+    <form method="POST" action="/razlicitost_nediskriminacija_i_ravnopravnost">
+        <input type="hidden" name="jedinstveni_id" value="{{ jedinstveni_id }}">
+        <h1>Различитост, недискриминација и равноправност</h1>
+
+        <p>Како би систем вештачке интелигенције био поуздан, потребно је омогућити укључивање (инклузивност) и различитост током целог животног циклуса система. Системи вештачке интелигенције могу имати одређене недостатке због нпр. некомплетности и модела лошег управљања, што може довести до ненамерних (не)посредних прејудицирања и дискриминације против одређених група, потенцијално утичући на погоршање одређених предрасуда и додатну маргинализацију рањивих група. Системи вештачке интелигенције треба да буду усмерени на корисника и створени на начин који свакоме омогућава коришћење производа или услуга вештачке интелигенције, без обзира на њихов узраст, пол, могућности или карактеристике. Од посебног је значаја приступачност ове технологије за особе са инвалидитетом, које су присутне у свим друштвеним групама.</p>
+        
+        <h2>Спречавање предрасуда</h2>
+
+        <!-- Deveto pitanje sa radio button-om i text poljem -->
+        <h4>Да ли постоје дефинисане процедуре за спречавање креирања или подстицања предрасуда у систему вештачке интелигенције, како при избору улазних података, тако и креирању алгоритма?</h4>
+        <label>
+            <input type="radio" name="pitanje74" value="Да, узете су у обзир различитост и репрезентативност крајњих корисника и/или лица" {% if odgovor_pitanje74 == 'Да, узете су у обзир различитост и репрезентативност крајњих корисника и/или лица' %}checked{% endif %} required> Да, узете су у обзир различитост и репрезентативност крајњих корисника и/или лица
+        </label>
+        <label>
+            <input type="radio" name="pitanje74" value="Да, тестиран је систем за све циљне групе, нарочито за осетљиве категорије" {% if odgovor_pitanje74 == 'Да, тестиран је систем за све циљне групе, нарочито за осетљиве категорије' %}checked{% endif %} required> Да, тестиран је систем за све циљне групе, нарочито за осетљиве категорије
+        </label>
+        <label>
+            <input type="radio" name="pitanje74" value="Да, приликом развоја система вештачке интелигенције коришћени су посебни алати који омогућавају боље разумевање података, модела и перформанси" {% if odgovor_pitanje74 == 'Да, приликом развоја система вештачке интелигенције коришћени су посебни алати који омогућавају боље разумевање података, модела и перформанси' %}checked{% endif %} required> Да, приликом развоја система вештачке интелигенције коришћени су посебни алати који омогућавају боље разумевање података, модела и перформанси
+        </label>
+        <label>
+            <input type="radio" name="pitanje74" value="Да, дефинисане су процедуре за тестирање и праћење потенцијалних предрасуда током читавог животног циклуса система" {% if odgovor_pitanje74 == 'Да, дефинисане су процедуре за тестирање и праћење потенцијалних предрасуда током читавог животног циклуса система' %}checked{% endif %} required> Да, дефинисане су процедуре за тестирање и праћење потенцијалних предрасуда током читавог животног циклуса система
+        </label>
+        <label>
+            <input type="radio" name="pitanje74" value="Не" {% if odgovor_pitanje74 == 'Не' %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли се врши едукација и подизање свести лица која учествују у стварању система вештачке интелигенције (дизајнери, програмери и др) како да препознају дискриминацију и предрасуде?</h4>
+        <label>
+            <input type="radio" name="pitanje75" value="Да, и то:" {% if odgovor_pitanje75 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje75" value="Не" {% if odgovor_pitanje75 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje75_text" {% if odgovor_pitanje75 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje75_text_odgovor">{{ odgovor_pitanje75_text }}</textarea>
+        </div>
+        
+        <h4>Да ли постоји механизам који у систему вештачке интелигенције препознаје предрасуде и дискриминацију?</h4>
+        <label>
+            <input type="radio" name="pitanje76" value="Да, успостављен је механизам детекције, односно пријаве и предвиђен је поступак решавања по пријавама" {% if odgovor_pitanje76 == 'Да, успостављен је механизам детекције, односно пријаве и предвиђен је поступак решавања по пријавама' %}checked{% endif %} required> Да, успостављен је механизам детекције, односно пријаве и предвиђен је поступак решавања по пријавама
+        </label>
+        <label>
+            <input type="radio" name="pitanje76" value="Да, идентификовано је на која лица, поред крајњих корисника, систем може да утиче" {% if odgovor_pitanje76 == 'Да, идентификовано је на која лица, поред крајњих корисника, систем може да утиче' %}checked{% endif %} required> Да, идентификовано је на која лица, поред крајњих корисника, систем може да утиче
+        </label>
+        <label>
+            <input type="radio" name="pitanje76" value="Не" {% if odgovor_pitanje76 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли се дефиниција равноправности користи и примењује у свим фазама процеса успостављања система вештачке интелигенције?<h4>
+        <label>
+            <input type="radio" name="pitanje77" value="Да, уз претходно разматрање више различитих дефиниција" {% if odgovor_pitanje77 == 'Да, уз претходно разматрање више различитих дефиниција' %}checked{% endif %} required> Да, уз претходно разматрање више различитих дефиниција
+        </label>
+        <label>
+            <input type="radio" name="pitanje77" value="Да, уз претходно консултовање свих група на које систем има утицаја" {% if odgovor_pitanje77 == 'Да, уз претходно консултовање свих група на које систем има утицаја' %}checked{% endif %} required> Да, уз претходно консултовање свих група на које систем има утицаја
+        </label>
+        <label>
+            <input type="radio" name="pitanje77" value="Да, уз претходно извршено тестирање коришћења дефиниције" {% if odgovor_pitanje77 == 'Да, уз претходно извршено тестирање коришћења дефиниције' %}checked{% endif %}> Да, уз претходно извршено тестирање коришћења дефиниције
+        </label>
+        <label>
+            <input type="radio" name="pitanje77" value="Не" {% if odgovor_pitanje77 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h2>Приступачност и јединствени (универзални) дизајн</h2>
+
+        <p>Нарочито у доменима „привреда ка потрошачу“, системи вештачке интелигенције треба да буду усмерени на корисника и дизајнирани на начин који омогућава свим људима да користе производе или услуге вештачке интелигенције, без обзира на њихов узраст, пол, могућности или карактеристике. Приступачност ове технологије за особе са инвалидитетом, које су присутне у свим друштвеним групама, од посебног је значаја. Системи вештачке интелигенције не би требало да имају приступ „калупа који одговара свима“, већ би требало да размотре принципе јединственог (универзалног) дизајна који би одговарао најширем могућем кругу корисника, пратећи релевантне стандарде приступачности. Ово ће омогућити једнак приступ и активно учешће свих људи у постојећим и надолазећим људским активностима у којима компјутери посредују а у вези са асистивним технологијама.</p>
+
+        <h4>Да ли систем вештачке интелигенције одговара различитим афинитетима и могућностима?</h4>
+        <label>
+            <input type="radio" name="pitanje78" value="Да" {% if odgovor_pitanje78 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje78" value="Не" {% if odgovor_pitanje78 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли систем вештачке интелигенције могу да користе особе са инвалидитетом или друге посебно осетљиве групе, као и маргинализоване групе (могућност избора више од једног одговора)?</h4>
+        <label>
+            <input type="radio" name="pitanje79" value="Да, током дизајнирања система консултоване су разне групе корисника за које је потребно обезбедити посебне механизме приступачности" {% if odgovor_pitanje79 == 'Да, током дизајнирања система консултоване су разне групе корисника за које је потребно обезбедити посебне механизме приступачности' %}checked{% endif %} required> Да, током дизајнирања система консултоване су разне групе корисника за које је потребно обезбедити посебне механизме приступачности
+        </label>
+        <label>
+            <input type="radio" name="pitanje79" value="Да, корисничком интерфејсу су доступни читачи екрана и друге помоћне технологије како би се омогућило коришћење система од стране наведених лица?" {% if odgovor_pitanje79 == 'Да, корисничком интерфејсу су доступни читачи екрана и друге помоћне технологије како би се омогућило коришћење система од стране наведених лица?' %}checked{% endif %} required> Да, корисничком интерфејсу су доступни читачи екрана и друге помоћне технологије како би се омогућило коришћење система од стране наведених лица?
+        </label>
+        <label>
+            <input type="radio" name="pitanje79" value="Не" {% if odgovor_pitanje79 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је током развоја система обезбеђен принцип универзалног дизајна, ако је применљиво?</h4>
+        <label>
+            <input type="radio" name="pitanje80" value="Да" {% if odgovor_pitanje80 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje80" value="Не, јер није релевантан за систем" {% if odgovor_pitanje80 == 'Не, јер није релевантан за систем' %}checked{% endif %} required> Не, јер није релевантан за систем
+        </label>
+        <label>
+            <input type="radio" name="pitanje80" value="Не" {% if odgovor_pitanje80 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли је извршена процена примене система вештачке интелигенције на групе које би могле бити погођене исходима примене система?</h4>
+        <label>
+            <input type="radio" name="pitanje81" value="Да" {% if odgovor_pitanje81 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje81" value="Не" {% if odgovor_pitanje81 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h2>Учешће заинтересованих страна</h2>
+
+        <p>Да би се развила поуздана вештачка интелигенција, препоручљиво је консултовати заинтересоване стране на које систем вештачке интелигенције може непосредно или посредно утицати током свог животног циклуса. Корисно је тражити редовне повратне информације чак и након пуштања у рад (примене) система, и успоставити дугорочне механизме за учешће заинтересованих страна, на пример обезбеђивањем информација о радницима, консултација и учешћа током целог процеса примене система вештачке интелигенције у организацијама.</p>
+
+        <h4>Да ли су приликом развоја система вештачке интелигенције консултоване све заинтересоване стране?</h4>
+        <label>
+            <input type="radio" name="pitanje82" value="Да, и то:" {% if odgovor_pitanje82 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje82" value="Не" {% if odgovor_pitanje82 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje82_text" {% if odgovor_pitanje82 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje82_text_odgovor">{{ odgovor_pitanje82_text }}</textarea>
+        </div>
+
+        <h4>Да ли су запослена/ангажована лица експлицитно упозната с непосредним или посредним ефектима које вештачка интелигенција има или може да има на њихов радни статус и права?</h4>
+        <label>
+            <input type="radio" name="pitanje83" value="Да, и то:" {% if odgovor_pitanje83 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje83" value="Не" {% if odgovor_pitanje83 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje83_text" {% if odgovor_pitanje83 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje83_text_odgovor">{{ odgovor_pitanje83_text }}</textarea>
+        </div>
+
+        <h4>Да ли су запослена/ангажована лица имали обуку која им пружа знање о функционисању вештачке интелигенције и њеном утицају на њихов радни статус и права?</h4>
+        <label>
+            <input type="radio" name="pitanje84" value="Да, и то:" {% if odgovor_pitanje84 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje84" value="Не" {% if odgovor_pitanje84 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje84_text" {% if odgovor_pitanje84 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje84_text_odgovor">{{ odgovor_pitanje84_text }}</textarea>
+        </div>
+
+        <h4>Да ли је запосленим/ангажованим лицима и синдикатима омогућено да траже и добију податке о високоризичним системима вештачке интелигенције који утичу на њихов радни статус и права у вези са тим?</h4>
+        <label>
+            <input type="radio" name="pitanje85" value="Да" {% if odgovor_pitanje85 == 'Да' %}checked{% endif %} required> Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje85" value="Не" {% if odgovor_pitanje85 == 'Не' %}checked{% endif %}> Не
+        </label>
+
+        <h4>Да ли ће се након пуштања у рад система спроводити периодична испитивања корисника система, а у циљу контроле истог?</h4>
+        <label>
+            <input type="radio" name="pitanje86" value="Да, и то:" {% if odgovor_pitanje86 == 'Да, и то:' %}checked{% endif %} required> Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje86" value="Не" {% if odgovor_pitanje86 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje86_text" {% if odgovor_pitanje86 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje86_text_odgovor">{{ odgovor_pitanje86_text }}</textarea>
+        </div>
+
+        <!-- Ostala pitanja -->
+        <!-- ... -->
+        <button type="submit" name="action" value="prev">Претходна страница</button>    
+        <button type="submit" name="action" value="next">Следећа страница</button>
+  
+    <br><br>
+        <div class="progress-bar">
+            <div class="progress progress-text" style="width: {{ progres }}%;">{{ progres }}%</div>
+        </div>
+        <br>
+    </form>
+    
+    <script>
+        const radioButtons75 = document.querySelectorAll('input[name="pitanje75"]');
+        const radioButtons82 = document.querySelectorAll('input[name="pitanje82"]');
+        const radioButtons83 = document.querySelectorAll('input[name="pitanje83"]');
+        const radioButtons84 = document.querySelectorAll('input[name="pitanje84"]');
+        const radioButtons86 = document.querySelectorAll('input[name="pitanje86"]');
+      
+        const textPolje75 = document.getElementById('pitanje75_text');
+        const textPolje82 = document.getElementById('pitanje82_text');
+        const textPolje83 = document.getElementById('pitanje83_text');
+        const textPolje84 = document.getElementById('pitanje84_text');
+        const textPolje86 = document.getElementById('pitanje86_text');
+    
+
+        radioButtons75.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje75.style.display = 'block';
+                }
+                else {
+                    textPolje75.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons82.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje82.style.display = 'block';
+                }
+                else {
+                    textPolje82.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons83.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje83.style.display = 'block';
+                }
+                else {
+                    textPolje83.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons84.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje84.style.display = 'block';
+                }
+                else {
+                    textPolje84.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons86.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje86.style.display = 'block';
+                }
+                else {
+                    textPolje86.style.display = 'none';
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>

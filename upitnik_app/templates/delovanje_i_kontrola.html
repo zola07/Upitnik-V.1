@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Деловање и контрола</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="side-menu">
+        <ul>
+            <img id="logo-menu" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+            <li><a href="/upitnik">Почетна страна</a></li>
+            <li><a href="/delovanje_i_kontrola">Деловање и контрола</a></li>
+            <li><a href="/tehnicka_pouzdanost_i_bezbednost">Техничка поузданост и безбедност</a></li>
+            <li><a href="/privatnost_zastita_podataka_i_upravljanje_podacima">Приватност, заштита података о личности и управљање подацима</a></li>
+            <li><a href="/transparentnost">Транспарентност</a></li>
+            <li><a href="/razlicitost_nediskriminacija_i_ravnopravnost">Различитост, недискриминација и равноправност</a></li>
+            <li><a href="/drustveno_i_ekonomsko_blagostanje">Друштвено и еколошко благостање</a></li>
+            <li><a href="/odgovornost">Одговорност</a></li>
+            <!-- Dodajte linkove za ostale stranice -->
+        </ul>
+    </div>
+    
+    <form method="POST" action="/delovanje_i_kontrola">
+        <input type="hidden" name="jedinstveni_id" value="{{ jedinstveni_id }}">
+        <h1>Деловање и контрола</h1>
+        <!-- Prvo pitanje sa radio button-om i text poljem -->
+        <h2>Деловање</h2>
+        
+        <h4>Да ли је систем вештачке интелигенције дизајниран да:</h4>
+        <label>
+            <input type="radio" name="pitanje1" value="комуницира (је у интеракцији)" {% if odgovor_pitanje1 == 'комуницира (је у интеракцији)' %}checked{% endif %} required> комуницира (је у интеракцији)
+        </label>
+        <label>
+            <input type="radio" name="pitanje1" value="утиче на одлуке (даје препоруку)" {% if odgovor_pitanje1 == 'утиче на одлuke (даје препоруку)' %}checked{% endif %}> утиче на одлуке (даје препоруку)
+        </label>
+        <label>
+            <input type="radio" name="pitanje1" value="доноси одлуке" {% if odgovor_pitanje1 == 'доноси одлуке' %}checked{% endif %}> доноси одлуке
+        </label>
+
+        <h4>Да ли је лице које користи и/или лице на које систем вештачке интелигенције утиче свесно да је у интеракцији са системом?</h4>
+        <label>
+            <input type="radio" name="pitanje2" value="Да, и то: (на начин)" {% if odgovor_pitanje2 == 'Да, и то: (на начин)' %}checked{% endif %} required> Да, и то: (на начин)
+        </label>
+        <label>
+            <input type="radio" name="pitanje2" value="Не" {% if odgovor_pitanje2 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje2_text" {% if odgovor_pitanje2 == 'Да, и то: (на начин)' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje2_text_odgovor">{{ odgovor_pitanje2_text }}</textarea>
+        </div>
+        
+        <h4>Да ли је лице које користи и/или лице на које систем вештачке интелигенције утиче обавештено да је одлука, садржај, савет или исход резултат алгоритамске одлуке?</h4>
+        <label>
+            <input type="radio" name="pitanje3" value="Да, и то: (на начин)" {% if odgovor_pitanje3 == 'Да, и то: (на начин)' %}checked{% endif %} required > Да, и то: (на начин)
+        </label>
+        <label>
+            <input type="radio" name="pitanje3" value="Не" {% if odgovor_pitanje3 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje3_text" {% if odgovor_pitanje3 == 'Да, и то: (на начин)' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje3_text_odgovor">{{ odgovor_pitanje3_text }}</textarea>
+        </div>
+        
+        <h4>У којој мери систем вештачке интелигенције може да утиче на аутономију личности при доношењу одлука?</h4>
+        <label>
+            <input type="radio" name="pitanje4" value="У потпуности утиче" {% if odgovor_pitanje4 == 'У потпуности утиче' %}checked{% endif %} required > У потпуности утиче
+        </label>
+        <label>
+            <input type="radio" name="pitanje4" value="Значајно утиче" {% if odgovor_pitanje4 == 'Значајно утиче' %}checked{% endif %}> Значајно утиче
+        </label>
+        <label>
+            <input type="radio" name="pitanje4" value="Делимично утиче" {% if odgovor_pitanje4 == 'Делимично утиче' %}checked{% endif %} required > Делимично утиче
+        </label>
+        <label>
+            <input type="radio" name="pitanje4" value="Минимално утиче" {% if odgovor_pitanje4 == 'Минимално утиче' %}checked{% endif %}> Минимално утиче
+        </label>
+        <label>
+            <input type="radio" name="pitanje4" value="Не утиче" {% if odgovor_pitanje4 == 'Не утиче' %}checked{% endif %}> Не утиче
+        </label>
+
+        <h4>Да ли су успостављене процедуре којима се лицу које користи систем вештачке интелигенције онемогућава да се, при доношењу одлука, ослања искључиво на систем вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje5" value="Да, и то:" {% if odgovor_pitanje5 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje5" value="Не" {% if odgovor_pitanje5 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje5_text" {% if odgovor_pitanje5 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje5_text_odgovor">{{ odgovor_pitanje5_text }}</textarea>
+        </div>
+
+        <h4>Да ли постоји процедура којом се спречава да систем вештачке интелигенције ненамерно (самосталним учењем) утиче на аутономију личности?</h4>
+        <label>
+            <input type="radio" name="pitanje6" value="Да, и то:" {% if odgovor_pitanje6 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje6" value="Не" {% if odgovor_pitanje6 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje6_text" {% if odgovor_pitanje6 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje6_text_odgovor">{{ odgovor_pitanje6_text }}</textarea>
+        </div>
+
+        <h4>Да ли постоји процедура којом се спречавају могуће негативне последице по лица која користе као и лица на које систем утиче ако развију зависност од система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje7" value="Да, и то:" {% if odgovor_pitanje7 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje7" value="Не" {% if odgovor_pitanje7 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje7_text" {% if odgovor_pitanje7 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje7_text_odgovor">{{ odgovor_pitanje7_text }}</textarea>
+        </div>
+
+        <h4>Да ли су предузете мере за смањење ризика од зависности лица која користе као и лица на које систем утиче од коришћења система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje8" value="Да, и то:" {% if odgovor_pitanje8 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje8" value="Не" {% if odgovor_pitanje8 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje8_text" {% if odgovor_pitanje8 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje8_text_odgovor">{{ odgovor_pitanje8_text }}</textarea>
+        </div>
+
+        <h2>Контрола</h2>
+
+        <h4>Да ли је систем вештачке интелигенције:</h4>
+        <label>
+            <input type="radio" name="pitanje9" value="систем без надзора" {% if odgovor_pitanje9 == 'систем без надзора' %}checked{% endif %} required > систем без надзора
+        </label>
+        <label>
+            <input type="radio" name="pitanje9" value="HITL систем у којем је омогућена интервенција у сваком циклусу одлучивања" {% if odgovor_pitanje9 == 'HITL систем у којем је омогућена интервенција у сваком циклусу одлучивања' %}checked{% endif %} required > HITL систем у којем је омогућена интервенција у сваком циклусу одлучивања
+        </label>
+        <label>
+            <input type="radio" name="pitanje9" value="HОTL систем у којем је омогућена интервенција током пројектовања и надгледања рада система вештачке интелигенције" {% if odgovor_pitanje9 == 'HОTL систем у којем је омогућена интервенција током пројектовања и надгледања рада система вештачке интелигенције' %}checked{% endif %}> HОTL систем у којем је омогућена интервенција током пројектовања и надгледања рада система вештачке интелигенције
+        </label>
+        <label>
+            <input type="radio" name="pitanje9" value="HIC систем у којем је омогућена контрола свих активности система" {% if odgovor_pitanje9 == 'HIC систем у којем је омогућена контрола свих активности система' %}checked{% endif %} required > HIC систем у којем је омогућена контрола свих активности система
+        </label>
+       
+        <h4>Да ли су лица која врше контролу обучена за те послове?</h4>
+        <label>
+            <input type="radio" name="pitanje10" value="Да" {% if odgovor_pitanje10 == 'Да' %}checked{% endif %} required > Да
+        </label>
+        <label>
+            <input type="radio" name="pitanje10" value="Не" {% if odgovor_pitanje10 == 'Не' %}checked{% endif %}> Не
+        </label>
+        
+        <h4>Да ли су успостављени механизми откривања и реаговања на нежељене штетне ефекте система вештачке интелигенције?</h4>
+        <label>
+            <input type="radio" name="pitanje11" value="Да, и то:" {% if odgovor_pitanje11 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje11" value="Не" {% if odgovor_pitanje11 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje11_text" {% if odgovor_pitanje11 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje11_text_odgovor">{{ odgovor_pitanje11_text }}</textarea>
+        </div>
+
+        <h4>Да ли постоји „дугме за заустављање“ или процедура за безбедно прекидање операције када је то потребно?</h4>
+        <label>
+            <input type="radio" name="pitanje12" value="Да, постоји:" {% if odgovor_pitanje12 == 'Да, постоји:' %}checked{% endif %} required > Да, постоји:
+        </label>
+        <label>
+            <input type="radio" name="pitanje12" value="Не" {% if odgovor_pitanje12 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje12_text" {% if odgovor_pitanje12 == 'Да, постоји:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje12_text_odgovor">{{ odgovor_pitanje12_text }}</textarea>
+        </div>
+
+        <h4>Да ли су развијене посебне контролне мере за евидентирање самоучења или аутономне природе система?</h4>
+        <label>
+            <input type="radio" name="pitanje13" value="Да, и то:" {% if odgovor_pitanje13 == 'Да, и то:' %}checked{% endif %} required > Да, и то:
+        </label>
+        <label>
+            <input type="radio" name="pitanje13" value="Не" {% if odgovor_pitanje13 == 'Не' %}checked{% endif %}> Не
+        </label>
+        <div id="pitanje13_text" {% if odgovor_pitanje13 == 'Да, и то:' %}style="display: block;"{% else %}style="display: none;"{% endif %}>
+            <label>Детаљан одговор:</label>
+            <textarea name="pitanje13_text_odgovor">{{ odgovor_pitanje13_text }}</textarea>
+        </div>
+
+       
+
+        <button type="submit" name="action" value="next">Следећа страница</button>
+    <br><br>
+        <div class="progress-bar">
+            <div class="progress progress-text" style="width: {{ progres }}%;">{{ progres }}%</div>
+        </div>
+        <br>
+    </form>
+
+    <script>
+        // Dodajemo event listenere na radio dugmad
+        const radioButtons2 = document.querySelectorAll('input[name="pitanje2"]');
+        const radioButtons3 = document.querySelectorAll('input[name="pitanje3"]');
+        const radioButtons5 = document.querySelectorAll('input[name="pitanje5"]');
+        const radioButtons6 = document.querySelectorAll('input[name="pitanje6"]');
+        const radioButtons7 = document.querySelectorAll('input[name="pitanje7"]');
+        const radioButtons8 = document.querySelectorAll('input[name="pitanje8"]');
+        const radioButtons11 = document.querySelectorAll('input[name="pitanje11"]');
+        const radioButtons12 = document.querySelectorAll('input[name="pitanje12"]');
+        const radioButtons13 = document.querySelectorAll('input[name="pitanje13"]');
+
+        const textPolje2 = document.getElementById('pitanje2_text');
+        const textPolje3 = document.getElementById('pitanje3_text');
+        const textPolje5 = document.getElementById('pitanje5_text');
+        const textPolje6 = document.getElementById('pitanje6_text');
+        const textPolje7 = document.getElementById('pitanje7_text');
+        const textPolje8 = document.getElementById('pitanje8_text');
+        const textPolje11 = document.getElementById('pitanje11_text');
+        const textPolje12 = document.getElementById('pitanje12_text');
+        const textPolje13 = document.getElementById('pitanje13_text');
+
+
+        radioButtons2.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то: (на начин)') {
+                    textPolje2.style.display = 'block';
+                } else {
+                    textPolje2.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons3.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то: (на начин)') {
+                    textPolje3.style.display = 'block';
+                } else {
+                    textPolje3.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons5.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje5.style.display = 'block';
+                } else {
+                    textPolje5.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons6.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje6.style.display = 'block';
+                } else {
+                    textPolje6.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons7.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje7.style.display = 'block';
+                } else {
+                    textPolje7.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons8.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje8.style.display = 'block';
+                } else {
+                    textPolje8.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons11.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje11.style.display = 'block';
+                } else {
+                    textPolje11.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons12.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, постоји:') {
+                    textPolje12.style.display = 'block';
+                } else {
+                    textPolje12.style.display = 'none';
+                }
+            });
+        });
+
+        radioButtons13.forEach((radio) => {
+            radio.addEventListener('change', function () {
+                if (this.value === 'Да, и то:') {
+                    textPolje13.style.display = 'block';
+                } else {
+                    textPolje13.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

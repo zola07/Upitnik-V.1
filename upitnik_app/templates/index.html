@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Упитник - Почетна страница</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <br><br>
+    <img id="logo" src= "\static\pictures\logo-nitra-hor-cir.svg" alt= "png-image" />
+    <h1>Упитник за проверу испуњености и услова из Етичких смерница за развој, примену и употребу поуздане и одговорне вештачке интелигенције</h1>
+    <br><br>
+    <form id="index" action="/" method="POST">
+        <label for="ime_prezime">Име и презиме / Назив:</label>
+        <input type="text" id="ime_prezime" name="ime_prezime" required><br>
+
+        <label for="maticni_broj">Матични број (за правно лице):</label>
+        <input type="text" id="maticni_broj" name="maticni_broj"><br>
+
+        <label for="adresa">Адреса пребивалишта/седишта:</label>
+        <input type="text" id="adresa" name="adresa" required><br>
+
+        <label for="email">Имејл адреса:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="kontakt">Контакт телефон (опционо):</label>
+        <input type="tel" id="kontakt" name="kontakt" required><br>
+        
+        <label for="svrha_popunjavanja">Сврха попуњавања:</label>
+        <input type="text" id="svrha_popunjavanja" name="svrha_popunjavanja" required><br>
+<br><br>
+        <label for="uslovi_saglasnost">Потврђујем да се слажем са условима упитника:
+            <br><br>
+Упитник је корисни алат који је развијен у оквиру Етичких смерница за развој, примену и употребу поуздане и одговорне вештачке интелигенције (даље: Етичке смернице), са циљем испитивања организационих и нетехничких елемената значајних за развој и коришћење поузданих и одговорних система вештачке интелигенције.
+Упитник садржи и техничке препоруке које прате сваку појединачну групу питања.
+Упитник није искључива метода за оцену испуњености услова из Етичких смерница, већ служи један од начина оцене испуњености начела и услова садржаних у Етичким смерницама.
+        </label><br>
+    <input type="checkbox" id="uslovi_saglasnost" name="uslovi_saglasnost" required> Да, слажем се
+        <br><br>
+    
+        <button type="submit" name="action" value="POST">Сачувај податке</button>    
+</form>
+
+    
+<br><br>
+</body>
+</html>
